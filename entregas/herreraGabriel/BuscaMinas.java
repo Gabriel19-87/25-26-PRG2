@@ -29,6 +29,20 @@ class ExamenMina {
         };
     }
 }
+static void colocarMinas(String[][] mapaActivas) {
+        int i = 0;
+        final int TOTAL_MINAS = 5;
+        while (i < TOTAL_MINAS) {
+            int posYMina = (int) (Math.random() * 2 + 1);
+            int posXMina = (int) (Math.random() * 4 + 1);
+            if (mapaActivas[posXMina + 1][posYMina + 1].equals("1")) {
+                i--;
+            } else {
+                mapaActivas[posXMina + 1][posYMina + 1] = "1";
+            }
+            i++;
+        }
+    }
 	//Posiciones Random de la mina
 	public static void main(String[] args){	
 	Scanner scan = new Scanner(System.in);
