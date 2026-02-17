@@ -29,7 +29,7 @@ class ExamenMina {
         };
     }
 }
-static void colocarMinas(String[][] mapaActivas) {
+    static void colocarMinas(String[][] mapaActivas) {
         int i = 0;
         final int TOTAL_MINAS = 5;
         while (i < TOTAL_MINAS) {
@@ -42,6 +42,31 @@ static void colocarMinas(String[][] mapaActivas) {
             }
             i++;
         }
+    }
+    static void imprimir(String[][] mapa) {
+        for (int i = 0; i < mapa.length; i++) {
+            for (int j = 0; j < mapa[i].length; j++) {
+                System.out.print(mapa[i][j]);
+            }
+            System.out.println(" ");
+        }
+    }
+
+    static int[] elegirPosicion() {
+        Scanner scan = new Scanner(System.in);
+        int x, y;
+        boolean valoresCorrectos = false;
+        do {
+            System.out.println(" ");
+            System.out.println("Ingrese X");
+            y = scan.nextInt();
+            System.out.println("Ingrese Y");
+            x = scan.nextInt();
+            if (x <= 5 && y <= 7) {
+                valoresCorrectos = true;
+            }
+        } while (!valoresCorrectos);
+        return new int[] { x, y };
     }
 	//Posiciones Random de la mina
 	public static void main(String[] args){	
